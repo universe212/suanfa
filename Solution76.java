@@ -9,14 +9,7 @@ package suanfa;
  * @Create 2023/10/12 17:01
  * @Version 1.0
  */
-public class Solution76 {
-    public static void main(String[] args) {
-        String s = "BBACD", t = "ABC";
-        System.out.println(new SolutionT76().minWindow(s, t));
-    }
-}
-
-class SolutionT76 {
+    public class Solution76 {
     public String minWindow(String s, String t) {
         if (s == null || s.length() == 0 || t == null || t.length() == 0) {
             return "";
@@ -26,14 +19,14 @@ class SolutionT76 {
         int[] need = new int[128]; //128是ASCII码位数  need中需要的字符为非负 不需要的字符为负值(不需要的可分为非t字符串字符 还有t字符串字符的多余字符,比如ABC 但是有两个A 那么前面那个A就是不需要的字符)
         //构建字符串t的计数数组
         for (int i = 0; i < t.length(); i++) {
-            need[t.charAt(i)]++;
+            need[t.charAt(i)]++;  //t的每一个标记在need里面做标记
         }
         //定义窗口首尾端口,滑动窗口 滑动窗口大小=end-start+1
         int start = 0;
         for (int end = 0; end < s.length(); end++) {  //for循环移动end指针
             //
             if (need[s.charAt(end)] > 0) {
-                needcnt--;
+                needcnt--;  //表示s出现的字母在 need已经标记说明含有一个了
             }
             need[s.charAt(end)]--;    //加入了一个字符到窗口中 那么需要的这个字符数就-1
             if (needcnt == 0) {                      //第一步: 不断增加j使滑动窗口增大，直到窗口包含了T的所有元素
