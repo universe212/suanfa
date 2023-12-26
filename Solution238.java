@@ -24,8 +24,5 @@ public class Solution238 {
           R *=nums[j];
         }
         return result;
-
-
-
     }
 }
