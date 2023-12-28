@@ -14,21 +14,25 @@ import java.util.List;
 public class Node {
 
         public int val;
-        public suanfa.Node left;
-        public suanfa.Node right;
-        public suanfa.Node next;
+        public Node left;
+        public Node right;
+        public Node next;
+    Node random;
     public List<Node> children;
 
         public Node() {}
 
-        public Node(int _val) {
-            val = _val;
-        }
+
     public Node(int _val, List<Node> _children) {
         val = _val;
         children = _children;
     }
 
+    public Node(int val) {
+        this.val = val;
+        this.next = null;
+        this.random = null;
+    }
         public Node(int _val, suanfa.Node _left, suanfa.Node _right, suanfa.Node _next) {
             val = _val;
             left = _left;
