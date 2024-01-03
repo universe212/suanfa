@@ -19,16 +19,20 @@ public class Solution437 {
     public int pathSum(TreeNode root, int _t) {
         if (root == null) return 0;
         t = _t;
-        map.put(0L, 1);
-        dfs(root, root.val);
+        map.put(0L, 1);//传入0进去
+        dfs(root, root.val);//根节点先进去
         return ans;
     }
     void dfs(TreeNode root, long val) {
-        if (map.containsKey(val - t)) ans += map.get(val - t);
-        map.put(val, map.getOrDefault(val, 0) + 1);
-        if (root.left != null) dfs(root.left, val + root.left.val);
+        if(map.containsKey(val - t)) ans += map.get(val-t); // val - t包含值不 从 root开始遍历  思路逆天
+        map.put(val,map.getOrDefault(val,0) + 1);
+        //每次加的也是前缀和
+        if (root.left != null) dfs(root.left,val+root.left.val);
+        //从左
         if (root.right != null) dfs(root.right, val + root.right.val);
-        map.put(val, map.getOrDefault(val, 0) - 1);
+        //从右
+        map.put(val,map.getOrDefault(val,0)-1);
+       //移除得是val前缀和 不是root.val
     }
 
 //    int ans, t;
