@@ -21,9 +21,9 @@ public class Solution106 {
         if(in_left > in_right){
             return null;
         }
-        int root_val = postorder[post_inx];
+        int root_val = postorder[post_inx];//末尾
         TreeNode root = new TreeNode(root_val);
-        int index = idx_map.get(root_val);
+        int index = idx_map.get(root_val);//index是中序坐标
         post_inx--;
         root.right = helper(index + 1,in_right);
         root.left = helper(in_left,index - 1);
@@ -33,12 +33,12 @@ public class Solution106 {
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         this.inorder = inorder;
         this.postorder = postorder;
-        post_inx = postorder.length - 1;
+        post_inx = postorder.length - 1;//后续坐标
         int idx = 0;
         for (int i : inorder) {
             idx_map.put(i,idx++);
         }
-        return helper(0,inorder.length - 1);
+        return helper(0,inorder.length - 1);//是
 
 
     }

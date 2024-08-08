@@ -4,7 +4,7 @@ package suanfa;
  * ClassName: Solution416
  * Package: suanfa
  * Description
- *
+ * 2
  * @Author HuanZ
  * @Create 2023/10/31 16:20
  * @Version 1.0
@@ -15,9 +15,9 @@ public class Solution416 {
         for (int num : nums) sum += num;
         if (sum % 2 != 0) return false;
         int target = sum / 2;
-        boolean[] dp = new boolean[target + 1];
+        boolean[] dp = new boolean[target + 1];//0-target
         dp[0] = true;
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {//i确定数组的值
             for (int j = target; j >= nums[i]; j--) {
                 dp[j] = dp[j] || dp[j - nums[i]];
             }

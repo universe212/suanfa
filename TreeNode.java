@@ -1,29 +1,13 @@
 package suanfa;
-
-/**
- * ClassName: TreeNode
- * Package: suanfa
- * Description
- *
- * @Author HuanZ
- * @Create 2023/10/24 20:29
- * @Version 1.0
- */
 public class TreeNode {
-    TreeNode left;
-    TreeNode right;
-    int val;
-
-    public TreeNode() {
-    }
-
-    public TreeNode(int val) {
-        this.val = val;
-    }
-
-    public TreeNode(TreeNode left, TreeNode right, int val) {
-        this.left = left;
-        this.right = right;
-        this.val = val;
-    }
-}
+      int val;
+      TreeNode left;
+      TreeNode right;
+     TreeNode() {}
+     TreeNode(int val) { this.val = val; }
+      TreeNode(int val, TreeNode left, TreeNode right) {
+          this.val = val;
+          this.left = left;
+          this.right = right;
+      }
+  }

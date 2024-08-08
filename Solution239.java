@@ -6,7 +6,7 @@ import java.util.LinkedList;
  * ClassName: Solution239
  * Package: suanfa
  * Description
- *
+ *2
  * @Author HuanZ
  * @Create 2023/10/23 19:13
  * @Version 1.0
@@ -35,20 +35,20 @@ public class Solution239 {
         int n = nums.length;
         LinkedList<Integer> pq = new LinkedList<>();
         for(int i = 0; i < k; i++){
-            while (!pq.isEmpty() && nums[i] > nums[pq.peekLast()]){
-                pq.pollLast();
+            while (!pq.isEmpty() && nums[i] >= nums[pq.peekLast()]){
+                pq.pollLast(); //单调栈 左边最大 递减
             }
             pq.offerLast(i);
         }
         int[] cnt = new int[n - k + 1];
-        cnt[0] = nums[pq.peekFirst()];
+        cnt[0] = nums[pq.peekFirst()];//记录最大值吗？
         for(int i = k; i < n; i++){
-            while (!pq.isEmpty() && nums[i] > pq.peekLast()){
-                pq.pollLast();
+            while (!pq.isEmpty() && nums[i] >= nums[pq.peekLast()]){
+                pq.pollLast();//如果新加进来得比最右边得大 那那个右边得出来他进去，构成单调为止
             }
-            pq.offerLast(nums[i]);
-            while (pq.peekFirst()<=i-k){
-                pq.pollFirst();
+            pq.offerLast(i);//把 新来得加进去
+            while (pq.peekFirst()<= i-k){
+                pq.pollFirst();//看最大得那个越界没越界T出去
             }
             cnt[i - k + 1] = nums[pq.peekFirst()];
 

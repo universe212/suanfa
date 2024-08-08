@@ -6,7 +6,7 @@ import java.util.LinkedList;
  * ClassName: Solution101
  * Package: suanfa
  * Description
- *
+ * 2
  * @Author HuanZ
  * @Create 2023/10/26 20:13
  * @Version 1.0

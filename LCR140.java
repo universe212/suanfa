@@ -12,17 +12,21 @@ package suanfa;
 public class LCR140 {
 
     public ListNode trainingPlan(ListNode head, int cnt) {
-        ListNode pre = head;
-        ListNode had = pre;
-        for(int i = 0; i < cnt; i++){
-            if(pre == null) return null;
-            pre = pre.next;
+
+        ListNode cur = head;
+        ListNode cur1 = head;
+        int k = cnt;
+        while (cnt > 0){
+            cur = cur.next;
+            cnt--;
         }
-        while (pre != null){
-            pre = pre.next;
-            had = had.next;
+        while (cur.next != null){
+            cur = cur.next;
+            cur1 = cur1.next;
         }
-        return had;
+        return cur1;
+
+
     }
 
 }

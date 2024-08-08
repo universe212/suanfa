@@ -4,7 +4,7 @@ package suanfa;
  * ClassName: Solution234
  * Package: suanfa
  * Description
- *
+ *2
  * @Author HuanZ
  * @Create 2023/12/25 20:26
  * @Version 1.0
@@ -18,6 +18,8 @@ public class Solution234 {
             fast = fast.next.next;
             slow = slow.next;
         }//快慢指针定义 当慢到中间 快正好到末尾
+
+
         ListNode cur = slow.next; //此时cur越过中线
         ListNode curNext = null;  //null
 
@@ -32,11 +34,11 @@ public class Solution234 {
             if(head.val != slow.val){
                 return false;
             }
-            if(head.next == slow) return true;
+            if(head.next == slow) return true;//终止偶数
             head = head.next;
             slow = slow.next;
         }
-        return true;
+        return true;//奇数
     }
 //        ArrayList<Integer> list = new ArrayList<>();
 //        ListNode cur = head;

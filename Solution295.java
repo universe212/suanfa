@@ -17,10 +17,12 @@ public class Solution295 {
     PriorityQueue<Integer> r = new PriorityQueue<>((a,b)->a-b);//小顶堆
     public void addNum(int num) {
         int s1 = l.size(), s2 = r.size();//
-        if (s1 == s2) {
+        if (s1 == s2) {//说明当前是偶数 左边和右边一样多
+            //设定 l个数要大于 r所以
             if (r.isEmpty() || num <= r.peek()) {
                 l.add(num);//r为空 又因为 l的个数要大于r的个数 所以加入Num, r是小顶堆比他小不能放
             } else {
+                //num大于 右边第一个肯定要加进去 所以
                 l.add(r.poll());//不为空 num>r r是小顶堆可以放进 r，又因为l数字比r大，所以先把r移动一个到l
                 r.add(num);
             }

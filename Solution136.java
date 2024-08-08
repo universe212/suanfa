@@ -14,7 +14,7 @@ public class Solution136 {
         //同为0，异为1
         int single = 0;
         for (int num : nums) {
-            single ^= num;
+            single ^= num; //异或标志
         }
         return single;
 

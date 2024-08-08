@@ -11,8 +11,7 @@ package suanfa;
  */
 public class LCR130 {
     int total = 0;
-    int x = 0;
-    int y = 0;
+
     public int wardrobeFinishing(int m, int n, int cnt) {
         Boolean[][] visiteds = new Boolean[m][n];
         for(int i = 0; i < m ; i++){
@@ -20,6 +19,8 @@ public class LCR130 {
                 visiteds[i][j] = false;
             }
         }
+        int x = 0;
+        int y = 0;
         dfs(visiteds,cnt,m,n,x,y);
         return total;
     }
@@ -36,19 +37,15 @@ public class LCR130 {
         dfs(visiteds,cnt,m,n,x,y+1);
 
     }
-    private int change(int n){
-        String numberStr = Integer.toString(Math.abs(n));
-        char[] digitsArray = numberStr.toCharArray();
-
-        // 将拆分得到的每个数字相加
-        int sum = 0;
-        for (char digitChar : digitsArray) {
-            int digit = Character.getNumericValue(digitChar);
-            sum += digit;
+    private int change(int x){
+        int res = 0;
+        while (x != 0) {
+            res += x % 10;
+            x /= 10;
         }
-
-        return sum;
+        return res;
+    }
     }
 
 
-}
+

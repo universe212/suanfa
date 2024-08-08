@@ -15,7 +15,12 @@ import java.util.List;
  * @Version 1.0
  */
 public class Solution49 {
-    public List<List<String>> groupAnagrams(String[] strs) {
+
+    public static void main(String[] args) {
+        String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        groupAnagrams(strs);
+    }
+    public static List<List<String>> groupAnagrams(String[] strs) {
         HashMap<String,ArrayList> cnt = new HashMap<>();//
         for (String str : strs) {
             char[] chars = str.toCharArray();

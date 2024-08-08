@@ -13,26 +13,25 @@ import java.util.ArrayList;
  */
 public class Solution114 {
     public void flatten(TreeNode root) {
-
-
-        ArrayList<TreeNode> result = new ArrayList<>();
-        dfs(result,root);
-        for(int i = 1; i < result.size();i++){
-            TreeNode pre = result.get(i-1);
-            TreeNode pr = result.get(i);
+        ArrayList<Integer> res = new ArrayList<>();
+        dfs(root,res);
+        for (int i = 1; i < res.size(); i++) {
+            TreeNode pre = new TreeNode(res.get(i - 1));
+            TreeNode pre1 = new TreeNode(res.get(i));
+            pre.right = pre1;
             pre.left = null;
-            pre.right = pr;
+
         }
+
     }
 
-    private void dfs(ArrayList<TreeNode> result, TreeNode root) {
+    private void dfs(TreeNode root, ArrayList<Integer> res) {
+
         if(root == null){
             return;
         }
-        result.add(root);
-        dfs(result,root.left);
-        dfs(result,root.right);
-
-
-
-}}
+        res.add(root.val);
+        dfs(root.left,res);
+        dfs(root.right,res);
+    }
+ }

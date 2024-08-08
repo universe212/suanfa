@@ -6,7 +6,7 @@ import java.util.HashMap;
  * ClassName: Solution560
  * Package: suanfa
  * Description
- *
+ *2
  * @Author HuanZ
  * @Create 2023/12/21 19:19
  * @Version 1.0
@@ -18,7 +18,7 @@ public class Solution560 {
         HashMap<Integer ,Integer> map = new HashMap<>();
         map.put(0,1);
         for(int i = 0; i < nums.length ;i++){
-            pre += nums[i];
+            pre += nums[i]; 
             if(map.containsKey(pre-k)){
                 count += map.get(pre-k);
             }

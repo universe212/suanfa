@@ -12,8 +12,7 @@ package suanfa;
 public class Solution24 {
     public ListNode swapPairs(ListNode head) {
         ListNode pre = new ListNode(0);
-        ListNode cur = head;
-        pre.next = cur;
+        pre.next = head;
         ListNode temp = pre;
         while (temp.next != null && temp.next.next != null){
             ListNode start = temp.next;

@@ -4,7 +4,7 @@ package suanfa;
  * ClassName: Solution79
  * Package: suanfa
  * Description
- *
+ * 2
  * @Author HuanZ
  * @Create 2024/1/3 20:33
  * @Version 1.0
@@ -31,7 +31,7 @@ public class Solution79 {
         if (i1 < 0 || j < 0 || i1 >= board.length || j >= board[0].length || i > word.length() - 1 || board[i1][j] != word.charAt(i) || board[i1][j] == '1') {
             return false;
         }
-        if (i == word.length() - 1) {
+        if (i == word.length() - 1 && board[i1][j] == word.charAt(i)) {
             return true;
         }
         char temp = board[i1][j];
@@ -43,4 +43,5 @@ public class Solution79 {
         board[i1][j] = temp; // 恢复原值
         return found;
     }
+
 }

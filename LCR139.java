@@ -14,7 +14,7 @@ public class LCR139 {
         int i = 0;
         int length = actions.length;
         int j = length - 1;
-        int tmp = 0;
+        int tmp ;
         while (i < j){
             while(i < j && (actions[i] % 2) == 1) i++;
             while(i < j && (actions[j] % 2) == 0) j--;

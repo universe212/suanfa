@@ -7,7 +7,7 @@ import java.util.LinkedList;
  * ClassName: Solution56
  * Package: suanfa
  * Description
- *
+ *2
  * @Author HuanZ
  * @Create 2023/11/14 16:44
  * @Version 1.0
@@ -15,7 +15,6 @@ import java.util.LinkedList;
 public class Solution56 {
     public int[][] merge(int[][] intervals) {
         LinkedList<int[]> res = new LinkedList<>();
-        int[][] ints = new int[intervals.length][intervals[0].length];
         Arrays.sort(intervals,(a,b) ->{
             return Integer.compare(a[0],b[0]);
         });

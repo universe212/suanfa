@@ -9,28 +9,33 @@ package suanfa;
  * @Create 2024/1/9 21:23
  * @Version 1.0
  */
-public class Solution32 {
+public class Solution32 { //求的是连续
     public int longestValidParentheses(String s) {
-     int max = 0;
-     int[] dp = new int[s.length()];
-     for(int i = 1; i < s.length(); i++){
-         if(s.charAt(i) == ')'){
-             if(s.charAt(i-1) == '('){
-                 dp[i] = (i >= 2 ? dp[i - 2] : 0) + 2;//如果i>=2说明 dp[i-2]不会越界
-             }
-             else if(i - dp[i-1] > 0 && s.charAt(i-dp[i-1]-1) == '('){
-                 // i - dp[i-1] 大于0 表示dp[i-1]前面还有字符不越左边界
-                 //后半段  (（）) 表示 （）这个前面还有一个(
-                 dp[i] = dp[i-1] + ((i - dp[i-1]) >= 2 ? dp[i-dp[i-1] - 2] : 0) + 2;
-                 //p[i] = dp[i-1] + ((i - dp[i-1]) >= 3 ? dp[i-dp[i-1] - 2] : 0) + 2;
-                 //  i - do[i-1] 大于等于2 说明前面可能有有效字符串 因为有效字符串最短为2
-                 //这里大于2仅仅是 表示 ()()(())) i=7 7-2前面有两个，实际上应该大于3，因为已经有一个(与i=7匹配，前面大于3才能表名有两个
-                 //关于dp[i-dp[i-1]-2]   ()()(()) i=7  7-2 - 2=3此时3正好是前一个末尾 思路
-                 // +2表示当前又括号和前一个右括号 刚刚好两个
-             }
-             max = Math.max(max,dp[i]);
-         }
-     }
-     return max;
+        int[] dp = new int[s.length()];
+        int max = 0;
+        for (int i = 1; i < s.length(); i++) {
+            if(s.charAt(i) == ')'){// 两种情况 一种 前面还有 一种是第一个 前面没有
+                //前面有    （）（）
+                if(s.charAt(i-1) == '('){
+                    dp[i] = (i >= 3 ?dp[i-2]:0)  + 2;
+                }
+                else {
+
+                    //（）（（（））例子
+                    if(  i-dp[i-1] >= 1 &&   s.charAt(i-dp[i-1]-1) == '(' ){
+                        dp[i] = dp[i-1] + (i - dp[i-1] >= 3 ? dp[i-dp[i-1]  - 2] : 0) + 2;
+//  i-dp[i-1]表示 至少保证前面还有一个符号 没有符号肯定 没必要了 其次要想 能连续有加 前面那个符号还得是(
+                        //i-dp[i-1] -1 >=2 说明 (()) 这个前面 还有连续的符号 符号 至少为2个 所以 大于等于 2
+                        //在这种情况下 就加上 dp[i-dp[i-1]-2]
+                        //注意这里面 i - dp[i-1] - 1表示 坐标在  (())这个坐标在 (上面
+                        // i - dp[i-1]表示 坐标在(())在 第二个(
+                    }
+
+                }
+
+            }
+            max = Math.max(dp[i],max);
+        }
+        return  max;
     }
 }

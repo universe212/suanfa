@@ -4,7 +4,7 @@ package suanfa;
  * ClassName: LCR122
  * Package: suanfa
  * Description
- *
+ * 2
  * @Author HuanZ
  * @Create 2023/10/20 20:05
  * @Version 1.0

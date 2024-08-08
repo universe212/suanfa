@@ -4,7 +4,7 @@ package suanfa;
  * ClassName: Solution230
  * Package: suanfa
  * Description
- *
+ * 2
  * @Author HuanZ
  * @Create 2023/12/29 19:05
  * @Version 1.0
@@ -13,7 +13,6 @@ public class Solution230 {
     int ans = 0;
     int i = 0;
     public int kthSmallest(TreeNode root, int k) {
-        int i = 0;
         dfs(root,k);
         return ans;
     }

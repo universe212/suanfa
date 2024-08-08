@@ -19,7 +19,7 @@ public class Solution17 {
         if(digits == null || digits.length() == 0){
             return result;
         }
-    String[] numString =  {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    String[] numString =  {"", " ","abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
         backTracking(digits,numString,0);
         return result;
     }
@@ -33,7 +33,7 @@ public class Solution17 {
         for(int i = 0; i < str.length(); i++){
             temp.append(str.charAt(i));
             backTracking(digits,numString,num + 1);
-            temp.deleteCharAt(temp.length() - 1);
+            temp.deleteCharAt(temp.length() - 1);//删除最好一个字母
         }
     }
 

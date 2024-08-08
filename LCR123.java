@@ -15,6 +15,7 @@ public class LCR123 {
     public int[] reverseBookList(ListNode head) {
          ListNode pre = null;
          ListNode p = head;
+         // 0 1 2
          while (p!=null){
              ListNode nextNode = p.next;
              p.next = pre;

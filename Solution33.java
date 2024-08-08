@@ -4,7 +4,7 @@ package suanfa;
  * ClassName: Solution33
  * Package: suanfa
  * Description
- *
+ * 2
  * @Author HuanZ
  * @Create 2024/1/4 20:14
  * @Version 1.0

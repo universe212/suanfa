@@ -4,7 +4,7 @@ package suanfa;
  * ClassName: Solution198
  * Package: suanfa
  * Description
- *
+ * 2
  * @Author HuanZ
  * @Create 2023/11/17 19:02
  * @Version 1.0
@@ -27,9 +27,9 @@ public class Solution198 {
 //return dp[nums.length - 1];
         int x = 0, y = 0, z = 0;
         for(int i = 0; i < nums.length; i++){
-            y = z;
-            z = Math.max(y, x +nums[i]);
-            x = y;
+            y = z;//最大钱给x
+            z = Math.max(y, x +nums[i]);//最大钱
+            x = y;//x是当前坐标
         }
         return z;
 

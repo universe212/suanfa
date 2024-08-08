@@ -4,7 +4,7 @@ package suanfa;
  * ClassName: Solution153
  * Package: suanfa
  * Description
- *
+ * 2
  * @Author HuanZ
  * @Create 2024/1/4 20:50
  * @Version 1.0
@@ -15,7 +15,7 @@ public class Solution153 {
         int right = nums.length - 1;
         int min = Integer.MAX_VALUE;
         while (left <= right){
-            int mid = (right + left + 1)/2; //这个公式记住
+            int mid = (right + left)/2; //这个公式记住
 
             if(nums[left] <= nums[mid]){//说明左边有序 但是不是绝对
                min = Math.min(min,nums[left]);

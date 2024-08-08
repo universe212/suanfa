@@ -4,7 +4,7 @@ package suanfa;
  * ClassName: Solution108
  * Package: suanfa
  * Description
- *
+ * 2
  * @Author HuanZ
  * @Create 2023/12/1 19:21
  * @Version 1.0
@@ -20,7 +20,7 @@ public class Solution108 {
        if(left > right){
            return null;
        }
-       int mid = left + ((right - left) / 2);
+       int mid = ((right + left) / 2);
         TreeNode root = new TreeNode(nums[mid]);
        root.left = traversal(nums,left,mid - 1);
         root.right = traversal(nums,mid + 1,right);

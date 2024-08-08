@@ -4,7 +4,7 @@ package suanfa;
  * ClassName: Solution41
  * Package: suanfa
  * Description
- *
+ *1
  * @Author HuanZ
  * @Create 2023/12/22 20:00
  * @Version 1.0
@@ -22,10 +22,11 @@ public class Solution41 {
            int num = Math.abs(nums[i]);
 
            if(num < n + 1){
-               nums[num - 1] = -Math.abs( nums[num - 1]);
+               //满足条件变成负数
+               nums[num - 1] = -Math.abs( nums[num - 1]);//因为数组下表从0开始所以 num表示数组的第几个元素的下标要减一
            }
        }
-
+//1-134
        for(int i = 0; i < n; i++){
            if(nums[i] > 0){
                return i+1;

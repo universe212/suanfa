@@ -13,35 +13,27 @@ import java.util.*;
  */
 public class Solution347 {
     public int[] topKFrequent(int[] nums, int k) {
-        HashMap<Integer, Integer> cut = new HashMap<>();
-        PriorityQueue<int[]> pq = new PriorityQueue<>(new Comparator<int[]>() {
+        PriorityQueue<int[]> result = new PriorityQueue<>(new Comparator<int[]>() {
             @Override
             public int compare(int[] o1, int[] o2) {
-                return o1[1] - o2[1];//升序
+                return o2[1] - o1[1];
             }
-        });//创建了一个队列这个队列存储{1,2} 坐标0是值，坐标1是该数字出现的次数
+        });
+        HashMap<Integer, Integer> hashmap = new HashMap<>();
         for (int num : nums) {
-
-                cut.put(num,cut.getOrDefault(num,0)+1);
-
+            hashmap.put(num, hashmap.getOrDefault(num,0)+1);
         }
-        for (Map.Entry<Integer, Integer> integerIntegerEntry : cut.entrySet()) {
-            Integer value = integerIntegerEntry.getValue();//返回的出现次数
-            Integer key = integerIntegerEntry.getKey();
-            if(pq.size() == k){
-                if(pq.peek()[1] < value){
-                    pq.poll();
-                    pq.offer(new int[]{key,value});
-                }
-            }
-            else {pq.offer(new int[]{key,value});}
+
+        for (Map.Entry<Integer, Integer> num : hashmap.entrySet()) {
+            Integer key = num.getKey();
+            Integer value = num.getValue();
+            result.offer(new int[]{key,value});
         }
-        int[] cc = new int[k];
+        int[] ints = new int[k];
         for (int i = 0; i < k; i++) {
-                 cc[i] = pq.poll()[0];
+            ints[i] = result.poll()[0];
         }
-
-return cc;
+        return ints;
     }
     public int[] topKFrequent1(int[] nums, int k) {
         Map<Integer, Integer> occurrences = new HashMap<Integer, Integer>();

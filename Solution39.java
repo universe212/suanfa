@@ -65,6 +65,7 @@ public List<List<Integer>> combinationSum(int[] candidates, int target) {
             if (sum + candidates[i] > target) break;
             path.add(candidates[i]);
             backtracking(res, path, candidates, target, sum + candidates[i], i);
+            //至于为什么每次从i开始 因为如果是 2和3  不可能再去遍历2 至少从3开始  再去遍历2已经遍历了的
             path.remove(path.size() - 1); // 回溯，移除路径 path 最后一个元素
         }
     }

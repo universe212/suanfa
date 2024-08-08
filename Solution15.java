@@ -8,7 +8,7 @@ import java.util.List;
  * ClassName: Solution15
  * Package: suanfa
  * Description
- *
+ *2刷
  * @Author HuanZ
  * @Create 2023/10/19 20:52
  * @Version 1.0
@@ -27,7 +27,7 @@ public class Solution15 {
         }
         int left = i+1;
         int right = nums.length - 1;
-        while (left < right){
+        while (left <= right){
             int sums = nums[i] + nums[left] + nums[right];
             if(sums > 0){
                 right--;

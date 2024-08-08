@@ -4,7 +4,7 @@ package suanfa;
  * ClassName: LCR121
  * Package: suanfa
  * Description
- *
+ * 2
  * @Author HuanZ
  * @Create 2024/1/11 19:41
  * @Version 1.0
@@ -20,7 +20,7 @@ public class LCR121 {
                return true;
            }
            else if(plants[x][y] > target){
-               y--;
+               y--; //从第一行 最后一个值开始查找，如果大于则 y--  这旋转后是一个搜索二叉树 抽象BTS
            }
            else {
                x++;

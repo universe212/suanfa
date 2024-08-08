@@ -36,6 +36,7 @@ public class Solution994 {
             for(int i = 0; i < size; i++){
                 int[] temp = queue.poll(); //弹出第一个
                 for(int[] item : dire){
+                    //第一次应该是 向向下 是加1
                     int newrow = item[0] + temp[0], newcol = item[1] + temp[1]; //遍历四个方向
                     if(newrow >=0 && newrow < m && newcol >= 0 && newcol < n && grid[newrow][newcol] == 1){
                         grid[newrow][newcol] = 2;
